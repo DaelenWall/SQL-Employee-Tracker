@@ -12,3 +12,9 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the employee_tracker_db database.`)
 );
+
+// Calling the function to start the app + throwing potential errs
+connection.connect((err) => {
+    if (err) throw err;
+    start();
+  });
