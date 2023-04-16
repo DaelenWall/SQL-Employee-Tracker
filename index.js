@@ -1,19 +1,11 @@
-// Importing and requiring mysql2 and express
-const express = require('express');
+// Importing and requiring mysql2
 const mysql = require('mysql2');
-
-// Port destination
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Connection to database
 const db = mysql.createConnection(
   {
     host: 'localhost',
+    PORT: 3001,
     user: 'DB_USER',
     password: 'DB_PASSWORD',
     database: 'DB_NAME'
