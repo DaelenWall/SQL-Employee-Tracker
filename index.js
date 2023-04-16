@@ -13,8 +13,32 @@ const db = mysql.createConnection(
   console.log(`Connected to the employee_tracker_db database.`)
 );
 
+module.exports = connection;
+
 // Calling the function to start the app + throwing potential errs
 connection.connect((err) => {
     if (err) throw err;
     start();
   });
+
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'action',
+      message: 'What would you like to do?',
+      choices: [
+        'View all employees',
+        'View all departments',
+        'View all roles',
+        'Add employee',
+        'Add department',
+        'Add role',
+        'Update employee role',
+      ],
+    },
+  ])
+  .then((answers) => {
+    console.log(answers.action);
+  });
+
+    //   .then 'answers' === option => query 'result' . . .
